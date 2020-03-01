@@ -5,20 +5,15 @@ import Navigation from "./components/Navbar/Navbar";
 import MainPage from "./pages/MainPage/MainPage";
 import { Switch, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage/LandingPage";
+import Layout from "./components/Layout/Layout";
 function App() {
   return (
-    <div>
-      <Switch>
+    <Switch>
       <Route exact path="/">
         <LandingPage />
       </Route>
-      <Navigation />
-        <Route exact path="/home">
-          <MainPage />
-        </Route>
-      </Switch>
-      {/* <Signin /> */}
-    </div>
+      <MainPage />
+    </Switch>
   );
 }
 

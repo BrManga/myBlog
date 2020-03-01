@@ -1,11 +1,19 @@
 import React from "react";
-import { Container } from "react-bootstrap";
-
+import { Switch, Route } from "react-router-dom";
+import Navigation from "../../components/Navbar/Navbar";
+import "./MainPage.styles.scss";
+import Main from "../Main/Main";
 function MainPage() {
   return (
-    <Container>
-      <p>Mainpage</p>{" "}
-    </Container>
+    <>
+      <Navigation />
+      <Switch>
+        <Route exact path="/home">
+          <Main />
+        </Route>
+      </Switch>
+      {/* <Signin /> */}
+    </>
   );
 }
 
