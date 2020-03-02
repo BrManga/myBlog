@@ -8,7 +8,7 @@ function MainPage() {
     <>
       <Navigation />
       <Switch>
-        <Route exact path="/home">
+        <Route exact path="/blog">
           <Main />
         </Route>
       </Switch>

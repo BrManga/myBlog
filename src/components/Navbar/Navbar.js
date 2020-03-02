@@ -10,12 +10,13 @@ import {
   Container
 } from "react-bootstrap";
 import "./Navbar.style.scss";
+import logo from "../../images/logo.svg"
 function Navigation() {
   return (
     <>
       <div className="navTop">
         <Navbar.Brand>
-          <Link className="brandLink">foreSight</Link>
+          <Link className="brandLink"><img src={logo} alt="logo" srcset=""/> foreSight</Link>
         </Navbar.Brand>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />

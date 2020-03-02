@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 function LandingPage() {
   return (
-    <div>
+    <div className="landingPage">
       <div id="landing-header">
         <h1>Welcome to foreSight Blog!</h1>
-        <Link to="/home">
+        <Link to="/blog">
           <Button>Get Started</Button>
         </Link>
       </div>

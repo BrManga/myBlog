@@ -1,9 +1,15 @@
-$base-color: rgb(134, 177, 202);
+$base-color: rgb(71, 79, 83);
 
 .navTop {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 5px;
+  background-color: #fdfdfd;
+  img {
+    padding-left: 30px;
+    padding-right: 20px;
+    height: 100px;
+  }
   .brandLink {
     text-decoration: none;
     color: $base-color;

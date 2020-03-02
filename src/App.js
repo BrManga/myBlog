@@ -5,8 +5,8 @@ import Navigation from "./components/Navbar/Navbar";
 import MainPage from "./pages/MainPage/MainPage";
 import { Switch, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage/LandingPage";
-import Layout from "./components/Layout/Layout";
-function App() {
+function App(props) {
+  console.log(props)
   return (
     <Switch>
       <Route exact path="/">
