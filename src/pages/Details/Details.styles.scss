@@ -1,0 +1,48 @@
+.detailContainer {
+  padding: 0px 200px !important;
+}
+.imageRow {
+  display: flex;
+  justify-content: center;
+}
+.detailImage {
+  margin: 30px;
+  max-width: 800px;
+  max-height: 700px;
+}
+.titleRow {
+  .detailTitle {
+    width: 100%;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 30px 0 30px 0;
+    background-color: rgb(134, 134, 184);
+  }
+  .subtitle {
+    font-style: italic;
+    font-size: 1.4rem;
+    text-align: justify;
+    margin-bottom: 10px;
+  }
+  .author {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-style: italic;
+  }
+}
+.detailText {
+  font-size: 1.2rem;
+  text-align: justify;
+  margin-bottom: 50px;
+}
+/* Flaired edges, by Tomas Theunissen */
+
+hr.style-seven {
+  border: 0;
+  height: 45px;
+  background-image: url("../../images/Horizontal-Line-PNG-File.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}

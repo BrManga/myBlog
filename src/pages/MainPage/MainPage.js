@@ -12,7 +12,7 @@ function MainPage() {
         <Route exact path="/blog">
           <Main />
         </Route>
-        <Route exact path="/blog/:slug"><Details/></Route>
+        <Route exact path="/blog/:slug" component={Details}/>
       </Switch>
       {/* <Signin /> */}
     </>
