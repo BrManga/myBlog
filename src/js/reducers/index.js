@@ -1,3 +1,4 @@
+
 import {
   ADD_ARTICLE,
   DELETE_ARTICLE,
@@ -6,10 +7,10 @@ import {
 import { initialState } from "../../data";
 
 const deletebyId = (state = initialState, id) => {
-  const { articels } = state;
+  const { articles } = state;
   //console.log("reducer deletebyid", state);
-  const articles = articels.filter(article => article.id !== id);
-  return {articels:articles};
+  const articlesFiltered = articles.filter(article => article.id !== id);
+  return {articles:articlesFiltered};
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {

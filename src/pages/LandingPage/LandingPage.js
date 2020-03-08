@@ -12,7 +12,7 @@ function LandingPage() {
         </Link>
       </div>
 
-      <ul class="slideshow">
+      <ul className="slideshow">
         <li></li>
         <li></li>
         <li></li>

@@ -5,13 +5,13 @@ import "./Details.styles.scss";
 import { EDIT_ARTICLE, DELETE_ARTICLE } from "../../js/constants/action-types";
 
 function Details(props) {
-  const { editArticle, deleteArticle, articels } = props;
+  const { editArticle, deleteArticle, articles } = props;
 
   const itemid = props.match.params.slug;
-  const detailArray = articels.filter(article => {
-    return article.id == itemid;
+  const detailArray = articles.filter(article => {
+    const itemNumberId = parseInt(itemid, 10);
+    return article.id === itemNumberId;
   });
-  console.log("detailArray", detailArray);
   const { title, subtitle, author, image, date, text } = detailArray[0];
   return (
     <Container className="detailContainer">
@@ -66,7 +66,7 @@ function Details(props) {
   );
 }
 const mapStateToProps = state => {
-  return { articels: state.articels };
+  return { articles: state.articles };
 };
 const mapDispatchToProps = dispatch => {
   return {

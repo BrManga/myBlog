@@ -2,12 +2,8 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Card.styles.scss";
-import Details from "../../pages/Details/Details";
-function ArtCard({ image, title, text, slug, key, params }) {
-  
-  const handleClick = () => {
-    
-  };
+function ArtCard({ image, title, text, slug, params }) {
+  const handleClick = () => {};
   const way = `/blog/${slug}`;
   return (
     <Card className="articleCard">
@@ -16,7 +12,9 @@ function ArtCard({ image, title, text, slug, key, params }) {
         <Card.Title>{title}</Card.Title>
         <Card.Text>{text}</Card.Text>
         <Link to={way}>
-          <Button className="btn-danger" onClick={handleClick}>Read more...</Button>
+          <Button className="btn-danger" onClick={handleClick}>
+            Read more...
+          </Button>
         </Link>
       </Card.Body>
     </Card>

@@ -16,7 +16,7 @@ function Navigation() {
     <>
       <div className="navTop">
         <Navbar.Brand>
-          <Link className="brandLink"><img src={logo} alt="logo" srcset=""/> foreSight</Link>
+          <Link to="/blog" className="brandLink"><img src={logo} alt="logo" /> foreSight</Link>
         </Navbar.Brand>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
@@ -28,24 +28,24 @@ function Navigation() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Container>
             <Nav className="ml-auto">
-              <Nav.Link><Link>Blog</Link></Nav.Link>
+              <Nav><Link to="/blog">Blog</Link></Nav>
               <NavDropdown title="Topics" id="basic-nav-dropdown">
                 <NavDropdown.Item>
-                  <Link>Algorithms</Link>
+                  <Link to="/blog/algorithms">Algorithms</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <Link>Artificial Intelligence</Link>
+                  <Link to="/blog/artificialintelligence">Artificial Intelligence</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <Link>Competitive Programming</Link>
+                  <Link to="/blog/competitiveprogramming">Competitive Programming</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <Link>Cognitive</Link>
+                  <Link to="/cognitive">Cognitive</Link>
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link>
+              <Nav>
                 <Link to="/about">About</Link>
-              </Nav.Link>
+              </Nav>
             </Nav>
           </Container>
         </Navbar.Collapse>
