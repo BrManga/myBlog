@@ -9,7 +9,7 @@ const deletebyId = (state = initialState, id) => {
   const { articels } = state;
   //console.log("reducer deletebyid", state);
   const articles = articels.filter(article => article.id !== id);
-  return articles;
+  return {articels:articles};
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {

@@ -5,21 +5,18 @@ import ArtCard from "../../components/Card/Card";
 import { connect } from "react-redux";
 import { ADD_ARTICLE } from "../../js/constants/action-types";
 
-function Main({articels, addArticle}) {
-  
-
-  const handleClick = slug => {
-    addArticle()
-  };
-  const slugFunc = title => {
+function Main({ articels, addArticle }) {
+  console.log(articels);
+  /*   const slugFunc = title => {
     return title
       .split(" ")
       .join("")
       .replace(/\W/g, "")
       .toLowerCase();
-  };
+  }; */
+
   let articlesState = articels.map(item => {
-    const slug = slugFunc(item.title);
+    //  const slug = slugFunc(item.title);
     return (
       <ArtCard
         key={item.id}

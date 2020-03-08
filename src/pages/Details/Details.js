@@ -51,7 +51,10 @@ function Details(props) {
         </Col>
         <Col xs="6">
           <Button
-            onClick={() => deleteArticle(detailArray[0].id)}
+            onClick={() => {
+              deleteArticle(detailArray[0].id);
+              props.history.push("/blog");
+            }}
             variant="danger"
             block
           >
