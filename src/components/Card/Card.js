@@ -5,12 +5,13 @@ import "./Card.styles.scss";
 function ArtCard({ image, title, text, slug, params }) {
   const handleClick = () => {};
   const way = `/blog/${slug}`;
+  const shortedText=text.split(" ").slice(0, 30).join(" ");
   return (
     <Card className="articleCard">
       <Card.Img variant="top" src={image} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
-        <Card.Text>{text}</Card.Text>
+        <Card.Text>{shortedText}...</Card.Text>
         <Link to={way}>
           <Button className="btn-danger" onClick={handleClick}>
             Read more...

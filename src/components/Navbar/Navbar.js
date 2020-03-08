@@ -28,8 +28,8 @@ function Navigation() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Container>
             <Nav className="ml-auto">
-              <Nav><Link to="/blog">Blog</Link></Nav>
-              <NavDropdown title="Topics" id="basic-nav-dropdown">
+              <Nav><Link to="/blog" className="nav-link">Blog</Link></Nav>
+              <NavDropdown className="navbarLinks" title="Topics" id="basic-nav-dropdown">
                 <NavDropdown.Item>
                   <Link to="/blog/algorithms">Algorithms</Link>
                 </NavDropdown.Item>
@@ -44,7 +44,7 @@ function Navigation() {
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav>
-                <Link to="/about">About</Link>
+                <Link to="/about" className="nav-link">About</Link>
               </Nav>
             </Nav>
           </Container>

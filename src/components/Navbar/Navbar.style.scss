@@ -27,25 +27,16 @@ $base-color: rgb(71, 79, 83);
     }
   }
 }
+.navbar-nav{
+a{
+  text-decoration: none !important;
+  color: black;
+}
+}
 .navbar {
   background-color: $base-color;
   height: 55px;
-}
-.nav-link {
-  padding-right: 30px !important;
-  font-size: 1.2rem;
-  color: black !important;
-  a {
-    text-decoration: none !important;
-    color: black;
-  }
-}
-.dropdown-menu {
-  background-color: $base-color !important;
-  a {
-    color: white;
-    &:hover {
-      color: $base-color;
-    }
-  }
+.nav-link{
+color: wheat!important;
+font-size: 1.3rem;}
 }

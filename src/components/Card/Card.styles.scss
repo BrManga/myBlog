@@ -3,6 +3,7 @@
   height: 600px;
   margin: 15px;
   border: 10px solid black;
+  box-shadow: 8px 8px #929292;
 }
 .card-img-top {
   height: 250px;
@@ -10,6 +11,7 @@
 .card-text {
   height: 180px;
   overflow: hidden;
+  text-align: justify;
 }
 .card-body {
   justify-content: space-between;
