@@ -26,12 +26,20 @@ const rootReducer = (state = initialState, action) => {
       });
       console.log("rootReducer articleToEdit", articleToEdit[0]);
 
-      return {...state, edit: articleToEdit[0] };
+      return { ...state, edit: articleToEdit[0] };
     case SAVE_ARTICLE:
-      const tempState = state.push(action.payload);
-
-      console.log("rootReducer save", action.id);
-      return tempState;
+      state = deletebyId(state, action.payload.id);
+      console.log(
+        "state articles",
+        state.articles,
+        "action payload",
+        action.payload
+      );
+      const new1 = action.payload;
+      state.articles.push(new1)
+      const articc = { ...state.articles};
+      console.log("articc son ", articc);
+      return { ...state, articc };
     default:
       return state;
   }

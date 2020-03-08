@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Container, Row, Col, Button, Form } from "react-bootstrap";
+import { Container, Button, Form } from "react-bootstrap";
 import { SAVE_ARTICLE } from "../../js/constants/action-types";
 import "./Edit.styles.scss";
 
 function Edit(props) {
   console.log("Edit page props", props);
+  console.log(props);
+
   const articles = props.edit;
   const { saveArticle } = props;
   const [title, setTitle] = useState(articles.title);
@@ -14,17 +16,19 @@ function Edit(props) {
   const [date, setDate] = useState(articles.date);
   const [image, setImage] = useState(articles.image);
   const [text, setText] = useState(articles.text);
+
   const submitHandler = e => {
     e.preventDefault();
-    console.log(title);
     saveArticle({
       title: title,
       subtitle: subtitle,
       author: author,
       date: date,
       image: image,
-      text: text
+      text: text,
+      id: articles.id
     });
+    props.history.push("/blog");
   };
   return (
     <Container className="editContainer">
@@ -99,7 +103,7 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    saveArticle: id => dispatch({ type: SAVE_ARTICLE, id: id })
+    saveArticle: payload => dispatch({ type: SAVE_ARTICLE, payload: payload })
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Edit);
