@@ -1,5 +1,6 @@
 .detailContainer {
   padding: 0px 200px !important;
+  margin-bottom: 50px;
 }
 .imageRow {
   display: flex;
@@ -34,7 +35,7 @@
 .detailText {
   font-size: 1.2rem;
   text-align: justify;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 /* Flaired edges, by Tomas Theunissen */
 
@@ -45,4 +46,7 @@ hr.style-seven {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
+.buttonGroup {
+  padding-bottom: 30px;
 }

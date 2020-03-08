@@ -1,14 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import "./Details.styles.scss";
+import { EDIT_ARTICLE, DELETE_ARTICLE } from "../../js/constants/action-types";
 
 function Details(props) {
+  const { editArticle, deleteArticle, articels } = props;
+
   const itemid = props.match.params.slug;
-  const detailArray = props.articels.filter(article => {
+  const detailArray = articels.filter(article => {
     return article.id == itemid;
   });
-  console.log(detailArray);
+  console.log("detailArray", detailArray);
   const { title, subtitle, author, image, date, text } = detailArray[0];
   return (
     <Container className="detailContainer">
@@ -29,17 +32,43 @@ function Details(props) {
           {author} - {date}
         </Col>
       </Row>
-        <hr className="style-seven"/>
+      <hr className="style-seven" />
 
       <Row>
         <Col xs="12" className="detailText">
           {text}
         </Col>
       </Row>
+      <Row className="buttonGroup">
+        <Col xs="6">
+          <Button
+            onClick={() => editArticle(detailArray[0].id)}
+            variant="warning"
+            block
+          >
+            EDIT
+          </Button>
+        </Col>
+        <Col xs="6">
+          <Button
+            onClick={() => deleteArticle(detailArray[0].id)}
+            variant="danger"
+            block
+          >
+            REMOVE
+          </Button>
+        </Col>
+      </Row>
     </Container>
   );
 }
 const mapStateToProps = state => {
-  return state;
+  return { articels: state.articels };
 };
-export default connect(mapStateToProps)(Details);
+const mapDispatchToProps = dispatch => {
+  return {
+    editArticle: id => dispatch({ type: EDIT_ARTICLE, id: id }),
+    deleteArticle: id => dispatch({ type: DELETE_ARTICLE, id: id })
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Details);

@@ -1,4 +1,4 @@
-export const data = {
+export const initialState = {
   articels: [
     {
       title: "AI Accurately Detects Lung Cancer in Scans",

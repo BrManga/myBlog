@@ -2,30 +2,25 @@ import {
   ADD_ARTICLE,
   DELETE_ARTICLE,
   EDIT_ARTICLE,
-  ADD_SLUG
 } from "../constants/action-types";
-import { data } from "../../data";
-const initialState = data;
+import { initialState } from "../../data";
 
+const deletebyId = (state = initialState, id) => {
+  const { articels } = state;
+  //console.log("reducer deletebyid", state);
+  const articles = articels.filter(article => article.id !== id);
+  return articles;
+};
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_ARTICLE:
-      return console.log("rootReducer");
-
+      return console.log("rootReducer add");
     case DELETE_ARTICLE:
-      return Object.assign({}, state, {
-        articles: state.concat(action.payload)
-      });
+      console.log("rootReducer delete", action);
+      return deletebyId(state, action.id);
     case EDIT_ARTICLE:
-      return Object.assign({}, state, {
-        articles: state.concat(action.payload)
-      });
-    case ADD_SLUG:
-      console.log("slugy");
-
-      return Object.assign({}, state, {
-        slug: action.payload
-      });
+      console.log("rootReducer edit", action.id);
+      return state;
     default:
       return state;
   }
