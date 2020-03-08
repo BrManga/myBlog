@@ -42,7 +42,10 @@ function Details(props) {
       <Row className="buttonGroup">
         <Col xs="6">
           <Button
-            onClick={() => editArticle(detailArray[0].id)}
+            onClick={() => {
+              editArticle(detailArray[0].id);
+              props.history.push("/edit");
+            }}
             variant="warning"
             block
           >
