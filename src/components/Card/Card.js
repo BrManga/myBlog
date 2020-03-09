@@ -5,7 +5,13 @@ import "./Card.styles.scss";
 function ArtCard({ image, title, text, slug, params }) {
   const handleClick = () => {};
   const way = `/blog/${slug}`;
-  const shortedText=text.split(" ").slice(0, 30).join(" ");
+  var shortedText;
+  if (text.split(" ").length >= 30) {
+    shortedText = text
+      .split(" ")
+      .slice(0, 30)
+      .join(" ");
+  }
   return (
     <Card className="articleCard">
       <Card.Img variant="top" src={image} />

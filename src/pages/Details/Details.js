@@ -9,8 +9,7 @@ function Details(props) {
 
   const itemid = props.match.params.slug;
   const detailArray = articles.filter(article => {
-    const itemNumberId = parseInt(itemid, 10);
-    return article.id === itemNumberId;
+    return article.id == itemid;
   });
   const { title, subtitle, author, image, date, text } = detailArray[0];
   return (

@@ -15,7 +15,9 @@ const deletebyId = (state = initialState, id) => {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_ARTICLE:
-      return console.log("rootReducer add");
+      const newArticle = action.payload;
+      state.articles.push(newArticle);
+      return state;
     case DELETE_ARTICLE:
       console.log("rootReducer delete", action);
       return deletebyId(state, action.id);
@@ -36,8 +38,8 @@ const rootReducer = (state = initialState, action) => {
         action.payload
       );
       const new1 = action.payload;
-      state.articles.push(new1)
-      const articc = { ...state.articles};
+      state.articles.push(new1);
+      const articc = { ...state.articles };
       console.log("articc son ", articc);
       return { ...state, articc };
     default:

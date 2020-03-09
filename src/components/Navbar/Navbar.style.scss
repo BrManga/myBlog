@@ -5,6 +5,7 @@ $base-color: rgb(71, 79, 83);
   justify-content: space-between;
   padding: 5px;
   background-color: #fdfdfd;
+
   img {
     padding-left: 30px;
     padding-right: 20px;
@@ -18,6 +19,11 @@ $base-color: rgb(71, 79, 83);
     font-weight: bold;
     text-shadow: 3px 2px rgb(13, 13, 14);
   }
+  .form-inline {
+    padding: 0;
+    margin-left: auto;
+    margin-right: 20px;
+  }
   .searchButton {
     color: $base-color;
     background-color: rgb(237, 247, 253);
@@ -26,17 +32,21 @@ $base-color: rgb(71, 79, 83);
       background-color: $base-color;
     }
   }
+  .addArticleButton {
+    margin: auto 20px;
+  }
 }
-.navbar-nav{
-a{
-  text-decoration: none !important;
-  color: black;
-}
+.navbar-nav {
+  a {
+    text-decoration: none !important;
+    color: black;
+  }
 }
 .navbar {
   background-color: $base-color;
   height: 55px;
-.nav-link{
-color: wheat!important;
-font-size: 1.3rem;}
+  .nav-link {
+    color: wheat !important;
+    font-size: 1.3rem;
+  }
 }
