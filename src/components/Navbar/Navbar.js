@@ -5,9 +5,6 @@ import {
   Navbar,
   Nav,
   NavDropdown,
-  Form,
-  FormControl,
-  Button,
   Container
 } from "react-bootstrap";
 import "./Navbar.style.scss";
