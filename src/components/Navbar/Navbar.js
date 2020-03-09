@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import {
   Navbar,
   Nav,
@@ -11,7 +12,20 @@ import {
 } from "react-bootstrap";
 import "./Navbar.style.scss";
 import logo from "../../images/logo.svg";
-function Navigation() {
+function Navigation({ articles }) {
+  const allTopics = new Set();
+  articles.map(article => {
+    for (let index = 0; index < article.topics.length; index++) {
+      allTopics.add(article.topics[index]);
+    }
+    return allTopics;
+  });
+  const arrayAllTopics=Array.from(allTopics);
+
+  const navProducer = arrayAllTopics.map(topic => {
+    return <NavDropdown.Item>{topic}</NavDropdown.Item>;
+  });
+
   return (
     <>
       <div className="navTop">
@@ -48,22 +62,7 @@ function Navigation() {
                 title="Topics"
                 id="basic-nav-dropdown"
               >
-                <NavDropdown.Item>
-                  <Link to="/blog/algorithms">Algorithms</Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <Link to="/blog/artificialintelligence">
-                    Artificial Intelligence
-                  </Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <Link to="/blog/competitiveprogramming">
-                    Competitive Programming
-                  </Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <Link to="/cognitive">Cognitive</Link>
-                </NavDropdown.Item>
+                {navProducer}
               </NavDropdown>
               <Nav>
                 <Link to="/about" className="nav-link">
@@ -77,5 +76,7 @@ function Navigation() {
     </>
   );
 }
-
-export default Navigation;
+const mapStateToProps = state => {
+  return state;
+};
+export default connect(mapStateToProps)(Navigation);
