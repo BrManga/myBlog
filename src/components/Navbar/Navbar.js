@@ -12,7 +12,12 @@ import {
 } from "react-bootstrap";
 import "./Navbar.style.scss";
 import logo from "../../images/logo.svg";
-function Navigation({ articles }) {
+import { FILTER_ARTICLE } from "../../js/constants/action-types";
+
+
+function Navigation({ articles, filterArticle }) {
+  console.log("Navigation Function articles",articles);
+  
   const allTopics = new Set();
   articles.map(article => {
     for (let index = 0; index < article.topics.length; index++) {
@@ -20,10 +25,18 @@ function Navigation({ articles }) {
     }
     return allTopics;
   });
-  const arrayAllTopics=Array.from(allTopics);
+  const arrayAllTopics = Array.from(allTopics);
 
   const navProducer = arrayAllTopics.map(topic => {
-    return <NavDropdown.Item>{topic}</NavDropdown.Item>;
+    return (
+      <NavDropdown.Item
+        className="topicItem"
+        value={topic}
+        onClick={() => filterArticle(topic)}
+      >
+        {topic}
+      </NavDropdown.Item>
+    );
   });
 
   return (
@@ -34,10 +47,7 @@ function Navigation({ articles }) {
             <img src={logo} alt="logo" /> foreSight
           </Link>
         </Navbar.Brand>
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button className="searchButton">Search</Button>
-        </Form>
+
         <Link
           block
           className="addArticleButton btn btn-danger"
@@ -79,4 +89,9 @@ function Navigation({ articles }) {
 const mapStateToProps = state => {
   return state;
 };
-export default connect(mapStateToProps)(Navigation);
+const mapDispatchToProps = dispatch => {
+  return {
+    filterArticle: (filterWord) => dispatch({ type: FILTER_ARTICLE, filterWord: filterWord })
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

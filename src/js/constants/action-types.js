@@ -2,3 +2,4 @@ export const ADD_ARTICLE = "ADD_ARTICLE";
 export const DELETE_ARTICLE = "DELETE_ARTICLE";
 export const EDIT_ARTICLE = "EDIT_ARTICLE";
 export const SAVE_ARTICLE = "SAVE_ARTICLE";
+export const FILTER_ARTICLE = "FILTER_ARTICLE";

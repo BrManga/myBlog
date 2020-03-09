@@ -24,14 +24,6 @@ $base-color: rgb(71, 79, 83);
     margin-left: auto;
     margin-right: 20px;
   }
-  .searchButton {
-    color: $base-color;
-    background-color: rgb(237, 247, 253);
-    border-color: rgb(22, 22, 21);
-    &:hover {
-      background-color: $base-color;
-    }
-  }
   .addArticleButton {
     margin: auto 20px;
   }
@@ -48,5 +40,11 @@ $base-color: rgb(71, 79, 83);
   .nav-link {
     color: wheat !important;
     font-size: 1.3rem;
+  }
+}
+.topicItem {
+  &:hover {
+    background-color: $base-color !important;
+    color: white !important;
   }
 }

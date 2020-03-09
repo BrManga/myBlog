@@ -2,7 +2,8 @@ import {
   ADD_ARTICLE,
   DELETE_ARTICLE,
   EDIT_ARTICLE,
-  SAVE_ARTICLE
+  SAVE_ARTICLE,
+  FILTER_ARTICLE
 } from "../constants/action-types.js";
 export const addArticle = payload => {
   return { type: ADD_ARTICLE, payload };
@@ -15,4 +16,7 @@ export const editArticle = id => {
 };
 export const saveArticle = payload => {
   return { type: SAVE_ARTICLE, payload:payload };
+};
+export const filterArticle = filterWord => {
+  return { type: FILTER_ARTICLE, filterWord:filterWord };
 };

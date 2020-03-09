@@ -5,7 +5,7 @@ import ArtCard from "../../components/Card/Card";
 import { connect } from "react-redux";
 import { ADD_ARTICLE } from "../../js/constants/action-types";
 
-function Main({ articles }) {
+function Main(props) {
   /*   const slugFunc = title => {
     return title
       .split(" ")
@@ -13,7 +13,9 @@ function Main({ articles }) {
       .replace(/\W/g, "")
       .toLowerCase();
   }; */
-  console.log("main js articles", articles);
+
+  var articles = props.filtered || props.articles;
+  console.log("main js props", props);
 
   let articlesState = articles.map(item => {
     //  const slug = slugFunc(item.title);

@@ -2,7 +2,8 @@ import {
   ADD_ARTICLE,
   DELETE_ARTICLE,
   EDIT_ARTICLE,
-  SAVE_ARTICLE
+  SAVE_ARTICLE,
+  FILTER_ARTICLE
 } from "../constants/action-types";
 import { initialState } from "../../data";
 
@@ -11,6 +12,23 @@ const deletebyId = (state = initialState, id) => {
   //console.log("reducer deletebyid", state);
   const articlesFiltered = articles.filter(article => article.id !== id);
   return { articles: articlesFiltered };
+};
+const filterArticle = (state, filterWord) => {
+  console.log("filterArticle", state.articles, "filterWord", filterWord);
+  const tryIt = state.articles.filter(article => {
+    let exists = false;
+    article.topics.map(topic => {
+      console.log("topic", topic);
+
+      if (topic === filterWord) {
+        exists = true;
+        console.log("here");
+      }
+      return exists;
+    });
+    return exists;
+  });
+  return tryIt;
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -27,7 +45,6 @@ const rootReducer = (state = initialState, action) => {
         return article.id == action.id;
       });
       console.log("rootReducer articleToEdit", articleToEdit[0]);
-
       return { ...state, edit: articleToEdit[0] };
     case SAVE_ARTICLE:
       state = deletebyId(state, action.payload.id);
@@ -42,6 +59,10 @@ const rootReducer = (state = initialState, action) => {
       const articc = { ...state.articles };
       console.log("articc son ", articc);
       return { ...state, articc };
+    case FILTER_ARTICLE:
+      const filteredArticels = filterArticle(state, action.filterWord);
+      console.log("action payload", filteredArticels);
+      return { ...state, filtered: filteredArticels };
     default:
       return state;
   }
