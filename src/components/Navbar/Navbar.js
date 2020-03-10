@@ -1,23 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Container
-} from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import "./Navbar.style.scss";
 import logo from "../../images/logo.svg";
 import { FILTER_ARTICLE } from "../../js/constants/action-types";
 
+function Navigation(props) {
+  const { articles, filterArticle } = props;
+ // console.log(props);
 
-function Navigation({ articles, filterArticle }) {
-  
   const allTopics = new Set();
   articles.map(article => {
-    for (let index = 0; index < article.topics.length; index++) {
-      allTopics.add(article.topics[index]);
+    if (article.topics) {
+      for (let index = 0; index < article.topics.length; index++) {
+        allTopics.add(article.topics[index]);
+      }
     }
     return allTopics;
   });
@@ -26,7 +24,7 @@ function Navigation({ articles, filterArticle }) {
   const navProducer = arrayAllTopics.map(topic => {
     return (
       <NavDropdown.Item
-      key={topic}
+        key={topic}
         className="topicItem"
         value={topic}
         onClick={() => filterArticle(topic)}
@@ -87,7 +85,8 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    filterArticle: (filterWord) => dispatch({ type: FILTER_ARTICLE, filterWord: filterWord })
+    filterArticle: filterWord =>
+      dispatch({ type: FILTER_ARTICLE, filterWord: filterWord })
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
