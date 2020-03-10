@@ -14,15 +14,14 @@ const deletebyId = (state = initialState, id) => {
   return { articles: articlesFiltered };
 };
 const filterArticle = (state, filterWord) => {
-  console.log("filterArticle", state.articles, "filterWord", filterWord);
+  //console.log("filterArticle", state.articles, "filterWord", filterWord);
   const tryIt = state.articles.filter(article => {
     let exists = false;
     article.topics.map(topic => {
-      console.log("topic", topic);
+    //  console.log("topic", topic);
 
       if (topic === filterWord) {
         exists = true;
-        console.log("here");
       }
       return exists;
     });
@@ -37,31 +36,31 @@ const rootReducer = (state = initialState, action) => {
       state.articles.push(newArticle);
       return state;
     case DELETE_ARTICLE:
-      console.log("rootReducer delete", action);
+//      console.log("rootReducer delete", action);
       return deletebyId(state, action.id);
     case EDIT_ARTICLE:
-      console.log("rootReducer edit", state);
+//      console.log("rootReducer edit", state);
       const articleToEdit = state.articles.filter(article => {
         return article.id == action.id;
       });
-      console.log("rootReducer articleToEdit", articleToEdit[0]);
+//      console.log("rootReducer articleToEdit", articleToEdit[0]);
       return { ...state, edit: articleToEdit[0] };
     case SAVE_ARTICLE:
       state = deletebyId(state, action.payload.id);
-      console.log(
-        "state articles",
-        state.articles,
-        "action payload",
-        action.payload
-      );
+//      console.log(
+//        "state articles",
+//        state.articles,
+//        "action payload",
+//        action.payload
+//      );
       const new1 = action.payload;
       state.articles.push(new1);
       const articc = { ...state.articles };
-      console.log("articc son ", articc);
+//      console.log("articc son ", articc);
       return { ...state, articc };
     case FILTER_ARTICLE:
       const filteredArticels = filterArticle(state, action.filterWord);
-      console.log("action payload", filteredArticels);
+//      console.log("action payload", filteredArticels);
       return { ...state, filtered: filteredArticels };
     default:
       return state;

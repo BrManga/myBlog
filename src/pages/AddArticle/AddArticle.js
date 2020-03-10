@@ -6,7 +6,7 @@ import "./AddArticle.styles.scss";
 import { v4 as uuidv4 } from "uuid";
 
 function AddArticle(props) {
-  console.log(props);
+//  console.log(props);
 
   const { addArticle } = props;
   const [title, setTitle] = useState("");

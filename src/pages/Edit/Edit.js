@@ -5,8 +5,8 @@ import { SAVE_ARTICLE } from "../../js/constants/action-types";
 import "./Edit.styles.scss";
 
 function Edit(props) {
-  console.log("Edit page props", props);
-  console.log(props);
+//  console.log("Edit page props", props);
+//  console.log(props);
 
   const articles = props.edit;
   const { saveArticle } = props;

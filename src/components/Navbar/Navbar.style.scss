@@ -41,10 +41,23 @@ $base-color: rgb(71, 79, 83);
     color: wheat !important;
     font-size: 1.3rem;
   }
+  .navbar-toggler {
+    margin-left: auto !important;
+  }
+}
+.dropdown-menu {
+  background-color: $base-color !important;
+  border: none!important;
 }
 .topicItem {
+  color: wheat !important;
+
   &:hover {
-    background-color: $base-color !important;
-    color: white !important;
+    background-color: white !important;
+    color: $base-color !important;
   }
+}
+#basic-navbar-nav {
+  z-index: 100;
+  background-color: $base-color;
 }

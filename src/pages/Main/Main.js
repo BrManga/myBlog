@@ -15,7 +15,7 @@ function Main(props) {
   }; */
 
   var articles = props.filtered || props.articles;
-  console.log("main js props", props);
+  //  console.log("main js props", props);
 
   let articlesState = articles.map(item => {
     //  const slug = slugFunc(item.title);

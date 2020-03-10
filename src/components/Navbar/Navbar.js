@@ -13,7 +13,6 @@ import { FILTER_ARTICLE } from "../../js/constants/action-types";
 
 
 function Navigation({ articles, filterArticle }) {
-  console.log("Navigation Function articles",articles);
   
   const allTopics = new Set();
   articles.map(article => {
@@ -27,6 +26,7 @@ function Navigation({ articles, filterArticle }) {
   const navProducer = arrayAllTopics.map(topic => {
     return (
       <NavDropdown.Item
+      key={topic}
         className="topicItem"
         value={topic}
         onClick={() => filterArticle(topic)}
@@ -46,7 +46,6 @@ function Navigation({ articles, filterArticle }) {
         </Navbar.Brand>
 
         <Link
-          block
           className="addArticleButton btn btn-danger"
           variant="dark"
           to="/addarticle"
