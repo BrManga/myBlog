@@ -30,8 +30,10 @@ function Main(props) {
     );
   });
   return (
-    <Container className="mainContainer">
-      <Row>{articlesState}</Row>
+    <Container fluid={true} className="mainContainer">
+      <Container>
+        <Row>{articlesState}</Row>
+      </Container>
     </Container>
   );
 }
