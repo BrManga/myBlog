@@ -11,6 +11,8 @@ function ArtCard({ image, title, text, slug, params }) {
       .split(" ")
       .slice(0, 30)
       .join(" ");
+  } else {
+    shortedText = text;
   }
   return (
     <Card className="articleCard">
