@@ -1,32 +1,21 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import "./Main.styles.scss";
 import { Container, Row } from "react-bootstrap";
-import ArtCard from "../../components/Card/Card";
 import { connect } from "react-redux";
 import { ADD_ARTICLE } from "../../js/constants/action-types";
-
+const ArtCard = lazy(() => import("../../components/Card/Card"))
 function Main(props) {
-  /*   const slugFunc = title => {
-    return title
-      .split(" ")
-      .join("")
-      .replace(/\W/g, "")
-      .toLowerCase();
-  }; */
-
   var articles = props.filtered || props.articles;
-  //  console.log("main js props", props);
-
   let articlesState = articles.map(item => {
-    //  const slug = slugFunc(item.title);
     return (
-      <ArtCard
-        key={item.id}
-        title={item.title}
-        image={item.image}
-        text={item.text}
-        slug={item.id}
-      />
+      <Suspense fallback={<h1>Loading...</h1>}>
+        <ArtCard
+          key={item.id}
+          title={item.title}
+          image={item.image}
+          text={item.text}
+          slug={item.id}
+        /></Suspense>
     );
   });
   return (
